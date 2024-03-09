@@ -6,8 +6,8 @@
     "dev:front": "parcel serve ./src/index.html",
     "build:front": "parcel build ./src/index.html",
     "dev": "nodemon --watch ./server/index.ts --exec ts-node ./server/dev.ts",
-    "build:api": "tsc ./server/index.ts",
-    "build:": "npm run build:front && npm run build:api",
+    "build:api": "tsc server/index.ts",
+    "build": "npm run build:front && npm run build:api",
     "start": "node ./server/index.js"
   },
   "keywords": [],
