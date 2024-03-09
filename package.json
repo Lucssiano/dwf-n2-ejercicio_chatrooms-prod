@@ -2,9 +2,10 @@
   "name": "chatrooms-prod",
   "version": "1.0.0",
   "description": "",
+  "source": "./src/index.html",
   "scripts": {
-    "dev:front": "parcel serve ./src/index.html",
-    "build:front": "parcel build ./src/index.html",
+    "dev:front": "parcel",
+    "build:front": "parcel build",
     "dev": "nodemon --watch ./server/index.ts --exec ts-node ./server/dev.ts",
     "build:api": "tsc server/index.ts",
     "build": "npm run build:front && npm run build:api",
