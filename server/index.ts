@@ -1,9 +1,9 @@
 import express from 'express';
 import { realTimeDB, firestoreDB } from './db';
-import cors from 'cors';
 import { nanoid } from 'nanoid';
+import cors from 'cors';
 
-const port = 3000;
+const port = process.env.PORT || 3000; /* No sé cual seria el process env port --- PREGUNTAR */
 
 const app = express();
 app.use(express.json());
@@ -97,6 +97,12 @@ app.get('/users/:userId', (req, res) => {
 			if (user.exists) res.json(userData);
 			else res.status(401).json({ error: 'User does not exists' });
 		});
+});
+
+app.use(express.static('dist'));
+
+app.get('*', (req, res) => {
+	res.sendFile(__dirname + '/dist/index.html');
 });
 
 app.listen(port, () => console.log(`-------- Server is running on port ${3000} -------- `));

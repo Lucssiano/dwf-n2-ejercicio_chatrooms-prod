@@ -2,7 +2,7 @@ import * as lodash from 'lodash';
 import { rtdb } from './rtdb';
 import { ref, onValue } from 'firebase/database';
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = process.env.API_BASE_URL;
 
 export const state = {
 	data: {

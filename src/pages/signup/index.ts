@@ -1,6 +1,5 @@
 import { Router } from '@vaadin/router';
 import { state } from '../../state';
-const API_BASE_URL = 'http://localhost:3000';
 
 class SignUpPage extends HTMLElement {
 	shadow: ShadowRoot;

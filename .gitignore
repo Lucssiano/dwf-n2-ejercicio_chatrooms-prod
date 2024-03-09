@@ -3,3 +3,4 @@ dist
 .parcel-cache
 firebaseKey.json
 .env
+server/dev.ts
