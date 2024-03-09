@@ -1,12 +1,12 @@
 {
-  "name": "chatrooms",
+  "name": "chatrooms-prod",
   "version": "1.0.0",
   "description": "",
   "source": "./src/index.html",
   "scripts": {
     "dev:front": "parcel",
     "build:front": "build",
-    "dev": "nodemon --watch ./server/index.ts --exec ts-node ./dev/index.ts",
+    "dev": "nodemon --watch ./server/index.ts --exec ts-node ./server/dev.ts",
     "build:api": "tsc ./server/index.ts",
     "build:": "npm build:front && npm build:api",
     "start": "node ./server/index.js"
