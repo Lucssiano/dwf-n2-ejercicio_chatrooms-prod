@@ -1,9 +1,21 @@
+// {
+// 	"compilerOptions": {
+// 		"target": "ESNext",
+// 		"module": "CommonJS",
+// 		"moduleResolution": "node",
+// 		"resolveJsonModule": true,
+// 		"esModuleInterop": true
+// 	}
+// }
 {
 	"compilerOptions": {
-		"target": "ESNext",
 		"module": "CommonJS",
+		"target": "ESNext",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
+		"strictNullChecks": false,
 		"esModuleInterop": true
-	}
+	},
+	"files": ["./server/index.ts"],
+	"include": ["src/**/*", "server/**/*"]
 }
