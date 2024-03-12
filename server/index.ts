@@ -102,7 +102,8 @@ app.get('/users/:userId', (req, res) => {
 app.use(express.static('dist'));
 
 app.get('*', (req, res) => {
-	res.sendFile(__dirname + '/dist/index.html');
+	const route = '../' + __dirname + '/dist/index.html';
+	res.sendFile(route);
 });
 
 app.listen(port, () => console.log(`-------- Server is running on port ${port} -------- `));
