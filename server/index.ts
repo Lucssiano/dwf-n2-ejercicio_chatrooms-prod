@@ -105,4 +105,4 @@ app.get('*', (req, res) => {
 	res.sendFile(__dirname + '/dist/index.html');
 });
 
-app.listen(port, () => console.log(`-------- Server is running on port ${3000} -------- `));
+app.listen(port, () => console.log(`-------- Server is running on port ${port} -------- `));
