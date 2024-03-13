@@ -27,7 +27,6 @@ class ChatPage extends HTMLElement {
 		});
 		this.render();
 		state.init();
-		state.getRoomOwnerName();
 	}
 	render() {
 		this.shadow.innerHTML = `

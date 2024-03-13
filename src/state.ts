@@ -46,6 +46,7 @@ export const state = {
 					(snapshot) => {
 						const data = snapshot.val();
 						state.setRoomOwnerId(data);
+						state.getRoomOwnerName();
 					},
 					(error) => {
 						console.error('Error al escuchar cambios en la base de datos:', error);
