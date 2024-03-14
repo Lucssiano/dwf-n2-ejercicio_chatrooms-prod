@@ -1,6 +1,7 @@
 import express from 'express';
 import { realTimeDB, firestoreDB } from './db';
 import { nanoid } from 'nanoid';
+import path from 'path';
 import cors from 'cors';
 
 const port = process.env.PORT; /* No sé cual seria el process env port --- PREGUNTAR */
@@ -102,7 +103,7 @@ app.get('/users/:userId', (req, res) => {
 app.use(express.static('dist'));
 
 app.get('*', (req, res) => {
-	const route = '../' + __dirname + '/dist/index.html';
+	const route = path.join('../', __dirname, '/dist/index.html');
 	res.sendFile(route);
 });
 

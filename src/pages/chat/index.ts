@@ -29,6 +29,7 @@ class ChatPage extends HTMLElement {
 		state.init();
 	}
 	render() {
+		/* Como agrego un loader hasta que se carguen los mensajes? */
 		this.shadow.innerHTML = `
             <custom-header></custom-header>
             <div class="content-container">
