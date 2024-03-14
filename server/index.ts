@@ -3,7 +3,7 @@ import { realTimeDB, firestoreDB } from './db';
 import { nanoid } from 'nanoid';
 import cors from 'cors';
 
-const port = process.env.PORT || 3000; /* No sé cual seria el process env port --- PREGUNTAR */
+const port = process.env.PORT; /* No sé cual seria el process env port --- PREGUNTAR */
 
 const app = express();
 app.use(express.json());

@@ -23,6 +23,7 @@ export const state = {
 		fetch(`${API_BASE_URL}/rooms/${currentState.roomId}`)
 			.then((res) => res.json())
 			.then((data) => {
+				console.log(data);
 				const rtdbRoomId = data.rtdbRoomId;
 				const messagesRef = ref(rtdb, `/chatroom/rooms/${rtdbRoomId}/messages`);
 
@@ -56,6 +57,10 @@ export const state = {
 					},
 				);
 			});
+		// .catch((error) => {
+		// 	console.log(error);
+		// 	alert('Error al obtener la sala');
+		// });
 	},
 	getState() {
 		return this.data;

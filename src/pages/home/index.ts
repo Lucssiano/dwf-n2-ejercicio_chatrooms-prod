@@ -10,7 +10,6 @@ class HomePage extends HTMLElement {
 	connectedCallback() {
 		this.render();
 	}
-	/* PASARLO al state */
 	render() {
 		this.shadow.innerHTML = `
         <custom-header></custom-header>
@@ -30,7 +29,8 @@ class HomePage extends HTMLElement {
                 <button class="submit-button"><custom-text variant="large">Comenzar</custom-text></button>
             </form>
             <button class="submit-button sign-up-button"><custom-text variant="large">Registrarse</custom-text></button>
-        </div>
+				</div>
+				<custom-loader></custom-loader>
         `;
 		/* No puedo usar los componentes button y fieldset porque no se lleva bien con el form */
 		/* Para el button podría hacer un custom event que cuando haga click en el componente se dispare el submit del form, pero para el fieldset no se me ocurriria como */
@@ -47,14 +47,18 @@ class HomePage extends HTMLElement {
 		const nameEl = formEl.querySelector('.name') as HTMLInputElement;
 		const emailEl = formEl.querySelector('.email') as HTMLInputElement;
 
+		const contentContainerEl = this.shadow.querySelector('.content-container') as HTMLElement;
+		const loaderEl = this.shadow.querySelector('custom-loader').shadowRoot.querySelector('.loader-container') as HTMLElement;
+
 		formEl.addEventListener('submit', (e) => {
+			contentContainerEl.style.display = 'none';
+			loaderEl.style.display = 'flex';
+
 			e.preventDefault();
 			const name = nameEl.value;
 			const email = emailEl.value;
 
 			state.signIn(name, email).then((data) => {
-				// Si hay un mensaje es porque se encontró el usuario, significa que está en la db
-				// Por ende setear el mail y el name en el estado
 				if (data.message) {
 					const userId = data.id;
 					state.setName(name);
@@ -69,16 +73,18 @@ class HomePage extends HTMLElement {
 							} else {
 								alert('Error al crear la sala');
 							}
+							loaderEl.style.display = 'none';
 						});
 					else {
 						// Unirse a room existente
 						const roomId = roomIdLabel.querySelector('.room-id-input') as HTMLInputElement;
+						/* VER COMO HACER PARA QUE VAYA AL CHAT SOLO SI ENCONTRÓ LA ROOM */
+						/* Deberia hacer una especie de "state.joinRoom() para poder validar que el id exista antes de pasar al chat" */
 						state.setRoomId(roomId.value);
+						loaderEl.style.display = 'none';
 						Router.go('/chat');
 					}
 				} else {
-					// Si no hay mensaje es porque no se encontró el usuario
-					// Significa que no está en la db, por ende que se registre
 					alert('Usuario no encontrado, verifique que haya colocado bien el email y el nombre, o por favor regístrese');
 				}
 			});

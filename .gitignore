@@ -4,3 +4,4 @@ dist
 firebaseKey.json
 .env
 server/dev.ts
+*.js

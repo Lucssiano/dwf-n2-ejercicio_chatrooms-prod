@@ -60,8 +60,6 @@ class ChatPage extends HTMLElement {
 		const homeButton = this.shadow.querySelector('.home-button');
 		homeButton.addEventListener('click', () => Router.go('/home'));
 
-		/* No puedo usar los componentes button y fieldset porque no se lleva bien con el form */
-		/* Para el button podría hacer un custom event que cuando haga click en el componente se dispare el submit del form, pero para el fieldset no se me ocurriria como */
 		const formEl = this.shadow.querySelector('.chat-form');
 		formEl.addEventListener('submit', (e) => {
 			e.preventDefault();

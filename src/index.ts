@@ -11,6 +11,7 @@ import '../server/router';
 /* Components */
 import './components/header';
 import './components/text';
+import './components/loader';
 
 /* Pages */
 import './pages/home';
