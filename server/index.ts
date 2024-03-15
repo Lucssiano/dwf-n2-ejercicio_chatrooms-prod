@@ -103,7 +103,7 @@ app.get('/users/:userId', (req, res) => {
 app.use(express.static('dist'));
 
 app.get('*', (req, res) => {
-	const route = path.join('../', __dirname, '/dist/index.html');
+	const route = path.join(__dirname, '../dist/index.html');
 	res.sendFile(route);
 });
 
